@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Check if exactly one argument is provided
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <domain>"
+    echo "Example: $0 example.com"
+    exit 1
+fi
+
+domain="$1"
+
+# Check if domain is using Google Workspace
+curl -s -L "https://google.com/a/${domain}/ServiceLogin" | grep -q 'Sorry' && echo "Domain is not using Google Workspace" || echo "Domain is using Google Workspace"
+curl -s -L "https://dns.google.com/resolve?name=${domain}&type=MX" | jq | grep -q 'aspmx.l.google.com' && echo "Domain is using Gmail" || echo "Domain is not using Gmail"
