@@ -2,6 +2,8 @@
 
 Simple tools for enumerating Google Cloud Platform and Google Workspace configurations.
 
+These are largely pulled from the pwnedlabs.com GCP boot camp.
+
 ## Tools
 
 ### gcpdomaincheck
@@ -28,7 +30,7 @@ Check if email addresses have public Google Calendars.
 cat emails.txt | ./gcpcalcheck
 ```
 
-**Requirements:** Python 3, `requests`
+**Requirements:** `python3`, `requests`
 
 ## Installation
 ```bash
